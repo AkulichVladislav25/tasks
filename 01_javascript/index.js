@@ -9,11 +9,15 @@ const buttons = {
 };
 timer.textContent = '00:00';
 let startDate = new Date();
-let isTimerRunning = false;
-buttons.start.addEventListener('click', event => {
+let isTimerRunning = false,
+    isStopClick = false;
+
+function startClick() {
     isTimerRunning = false;
-    timerId = setInterval(function startTime() {
-        if (isTimerRunning) clearInterval(timerId);
+    if (!isStopClick) { startDate = new Date(); }
+    isStopClick = false;
+    startTimer = setInterval(function startTime() {
+        if (isTimerRunning) clearInterval(startTimer);
         let thisDate = new Date();
         let t = thisDate.getTime() - startDate;
         t = Math.floor(t / 1000);
@@ -29,21 +33,30 @@ buttons.start.addEventListener('click', event => {
         if (s < 10) s = '0' + s;
         timer.textContent = h.toString() + m.toString() + ':' + s.toString();
     }, 1000);
-});
-buttons.reset.addEventListener('click', event => {
+}
+
+function resetClick() {
     timer.textContent = '00:00';
     isTimerRunning = true;
-    startDate = new Date();
-});
-buttons.stop.addEventListener('click', event => {
+};
+
+function stopClick() {
     isTimerRunning = true;
-});
-buttons.minus.addEventListener('click', event => {
+    startDate = new Date();
+};
+
+function minusClick() {
     let testDate = new Date();
     if (testDate - startDate < 10000) { startdate = 0; } else {
         startDate += 10000;
     }
-});
-buttons.plus.addEventListener('click', event => {
+};
+
+function plusClick() {
     startDate -= 10000;
-});
+}
+buttons.start.addEventListener('click', startClick);
+buttons.reset.addEventListener('click', resetClick);
+buttons.stop.addEventListener('click', stopClick);
+buttons.minus.addEventListener('click', minusClick);
+buttons.plus.addEventListener('click', plusClick);
