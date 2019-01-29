@@ -8,52 +8,57 @@ const buttons = {
     minus: document.querySelector('.minus.button'),
 };
 timer.textContent = '00:00';
-let startDate = new Date();
-let isTimerRunning = false,
-    isStopClick = false;
+let currentTime = 0,
+    isTimerRunning = true;
+
+function calcTime(t) {
+    t = Math.floor(t / 1000);
+    let s = t % 60;
+    t -= s;
+    t = Math.floor(t / 60);
+    let m = t % 60;
+    t -= m;
+    t = Math.floor(t / 60);
+    let h = t % 60;
+    if (h < 10) h = h;
+    if (m < 10) m = m;
+    if (s < 10) s = '0' + s;
+    timer.textContent = h.toString() + m.toString() + ':' + s.toString();
+}
 
 function startClick() {
-    isTimerRunning = false;
-    if (!isStopClick) { startDate = new Date(); }
-    isStopClick = false;
+    isTimerRunning = true;
     startTimer = setInterval(function startTime() {
-        if (isTimerRunning) clearInterval(startTimer);
-        let thisDate = new Date();
-        let t = thisDate.getTime() - startDate;
-        t = Math.floor(t / 1000);
-        let s = t % 60;
-        t -= s;
-        t = Math.floor(t / 60);
-        let m = t % 60;
-        t -= m;
-        t = Math.floor(t / 60);
-        let h = t % 60;
-        if (h < 10) h = h;
-        if (m < 10) m = m;
-        if (s < 10) s = '0' + s;
-        timer.textContent = h.toString() + m.toString() + ':' + s.toString();
+        if (!isTimerRunning) {
+            clearInterval(startTimer);
+            currentTime -= 1000;
+        }
+        currentTime += 1000;
+        calcTime(currentTime);
     }, 1000);
 }
 
 function resetClick() {
+    isTimerRunning = false;
+    currentTime = 0;
     timer.textContent = '00:00';
-    isTimerRunning = true;
 };
 
 function stopClick() {
-    isTimerRunning = true;
-    startDate = new Date();
+    isTimerRunning = false;
 };
 
 function minusClick() {
-    let testDate = new Date();
-    if (testDate - startDate < 10000) { startdate = 0; } else {
-        startDate += 10000;
+    currentTime -= 10000;
+    if (currentTime < 0) {
+        currentTime = 0;
     }
+    calcTime(currentTime);
 };
 
 function plusClick() {
-    startDate -= 10000;
+    currentTime += 10000;
+    calcTime(currentTime);
 }
 buttons.start.addEventListener('click', startClick);
 buttons.reset.addEventListener('click', resetClick);
