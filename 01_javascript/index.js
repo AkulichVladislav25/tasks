@@ -80,28 +80,18 @@ function reverseTimer() {
     oneSecond = -oneSecond;
 }
 
-function table() {
-    var array_table = [];
-    for (var i = 0; i < 5; i++) {
-        array_table[i] = [];
-        for (var j = 0; j < 5; j++) {
-            array_table[i][j] = j;
-        }
-    }
-    var code = '<table align="center" border="2" width="65%" height="45%" bordercolor="#000000" cellspacing="10" cellpadding="10" bgcolor="#fde910">';
-    for (var i = 0; i < array_table.length; i++) {
-        code += '<tr>';
-        for (var j = 0; j < array_table[i].length; j++) {
-            code += '<td>' + array_table[i][j] + '</td>';
-        }
-        code += '</tr>';
-    }
-    code += '</table>';
-    var elem = document.getElementById("content");
+document.body.onload = addElement;
+
+function addElement() {
+    let newDiv = document.createElement("div");
+    let newContent = document.createTextNode(timer.textContent);
+    newDiv.appendChild(newContent);
+    let currentDiv = document.getElementById("div1");
+    document.body.insertBefore(newDiv, currentDiv);
 }
 
 function saveResults() {
-    table();
+    addElement;
 }
 buttons.start.addEventListener('click', startClick);
 buttons.reset.addEventListener('click', resetClick);
