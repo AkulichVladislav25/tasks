@@ -108,3 +108,34 @@ main>*+* {
     border-color: #2980b9;
     background: #2980b9;
 }
+
+.button.reverse {
+    color: rgb(255, 255, 255);
+    border-color: #db3434;
+    background: #db3434;
+}
+
+.button.reverse:hover {
+    border-color: #944242;
+    background: #944242;
+}
+
+.button.save {
+    color: rgb(15, 15, 6);
+    border-color: #91e60a;
+    background: #91e60a;
+}
+
+.button.save:hover {
+    border-color: #68a309;
+    background: #68a309;
+}
+
+.table {
+    width: 70%;
+}
+
+.table table {
+    width: 70%;
+    border: 1px thin #34495e;
+}

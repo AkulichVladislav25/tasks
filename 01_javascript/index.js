@@ -6,10 +6,14 @@ const buttons = {
     reset: document.querySelector('.reset.button'),
     plus: document.querySelector('.plus.button'),
     minus: document.querySelector('.minus.button'),
+    reverse: document.querySelector('.reverse.button'),
+    save: document.querySelector('.save.button'),
 };
+
 timer.textContent = '00:00';
 let currentTime = 0,
-    isTimerRunning = true;
+    isTimerRunning = true,
+    oneSecond = 1000;
 
 function calcTime(t) {
     t = Math.floor(t / 1000);
@@ -31,11 +35,15 @@ function startClick() {
     startTimer = setInterval(function startTime() {
         if (!isTimerRunning) {
             clearInterval(startTimer);
-            currentTime -= 1000;
+            currentTime -= oneSecond;
         }
-        currentTime += 1000;
+        currentTime += oneSecond;
+        if (currentTime < 0) {
+            currentTime = 0;
+            isTimerRunning = false;
+        }
         calcTime(currentTime);
-    }, 1000);
+    }, oneSecond);
 }
 
 function resetClick() {
@@ -60,8 +68,19 @@ function plusClick() {
     currentTime += 10000;
     calcTime(currentTime);
 }
+
+function reverseTimer() {
+    oneSecond = -oneSecond;
+}
+
+
+function saveResults() {
+
+}
 buttons.start.addEventListener('click', startClick);
 buttons.reset.addEventListener('click', resetClick);
 buttons.stop.addEventListener('click', stopClick);
 buttons.minus.addEventListener('click', minusClick);
 buttons.plus.addEventListener('click', plusClick);
+buttons.reverse.addEventListener("click", reverseTimer);
+buttons.save.addEventListener("click", saveResults);
