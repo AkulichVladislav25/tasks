@@ -13,6 +13,7 @@ const buttons = {
 timer.textContent = '00:00';
 let currentTime = 0,
     isTimerRunning = true,
+    isStartClick = false,
     oneSecond = 1000;
 
 function calcTime(t) {
@@ -32,22 +33,28 @@ function calcTime(t) {
 
 function startClick() {
     isTimerRunning = true;
-    startTimer = setInterval(function startTime() {
-        if (!isTimerRunning) {
-            clearInterval(startTimer);
-            currentTime -= oneSecond;
-        }
-        currentTime += oneSecond;
-        if (currentTime < 0) {
-            currentTime = 0;
-            isTimerRunning = false;
-        }
-        calcTime(currentTime);
-    }, oneSecond);
+    if (!isStartClick) {
+        startTimer = setInterval(function startTime() {
+            isStartClick = true;
+            if (!isTimerRunning) {
+                clearInterval(startTimer);
+                currentTime -= oneSecond;
+                isStartClick = false;
+            }
+            currentTime += oneSecond;
+            //alert(currentTime);
+            if (currentTime < 0) {
+                currentTime = 0;
+                isTimerRunning = false;
+            }
+            calcTime(currentTime);
+        }, 1000);
+    }
 }
 
 function resetClick() {
     isTimerRunning = false;
+    isStartClick = false;
     currentTime = 0;
     timer.textContent = '00:00';
 };
@@ -73,9 +80,28 @@ function reverseTimer() {
     oneSecond = -oneSecond;
 }
 
+function table() {
+    var array_table = [];
+    for (var i = 0; i < 5; i++) {
+        array_table[i] = [];
+        for (var j = 0; j < 5; j++) {
+            array_table[i][j] = j;
+        }
+    }
+    var code = '<table align="center" border="2" width="65%" height="45%" bordercolor="#000000" cellspacing="10" cellpadding="10" bgcolor="#fde910">';
+    for (var i = 0; i < array_table.length; i++) {
+        code += '<tr>';
+        for (var j = 0; j < array_table[i].length; j++) {
+            code += '<td>' + array_table[i][j] + '</td>';
+        }
+        code += '</tr>';
+    }
+    code += '</table>';
+    var elem = document.getElementById("content");
+}
 
 function saveResults() {
-
+    table();
 }
 buttons.start.addEventListener('click', startClick);
 buttons.reset.addEventListener('click', resetClick);
