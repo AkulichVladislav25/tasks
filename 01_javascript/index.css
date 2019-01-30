@@ -131,11 +131,8 @@ main>*+* {
     background: #68a309;
 }
 
-.table {
-    width: 70%;
-}
-
-.table table {
-    width: 70%;
-    border: 1px thin #34495e;
+#results {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
 }

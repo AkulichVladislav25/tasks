@@ -39,10 +39,12 @@ function startTime() {
         isStartClick = false;
     }
     currentTime += oneSecond;
-    //alert(currentTime);
     if (currentTime < 0) {
         currentTime = 0;
         isTimerRunning = false;
+        if (oneSecond < 0) {
+            oneSecond = -oneSecond;
+        }
     }
     calcTime(currentTime);
 };
@@ -57,7 +59,9 @@ function startClick() {
 function resetClick() {
     currentTime = 0;
     timer.textContent = '00:00';
-    if (oneSecond < 0) oneSecond = -oneSecond;
+    if (oneSecond < 0) {
+        oneSecond = -oneSecond;
+    }
 };
 
 function stopClick() {
@@ -78,7 +82,10 @@ function plusClick() {
 }
 
 function reverseTimer() {
-    if (oneSecond > 0) oneSecond = -oneSecond;
+    if (oneSecond > 0) {
+        oneSecond = -oneSecond;
+    }
+    startClick();
 }
 
 function saveResults() {
@@ -92,5 +99,5 @@ buttons.reset.addEventListener('click', resetClick);
 buttons.stop.addEventListener('click', stopClick);
 buttons.minus.addEventListener('click', minusClick);
 buttons.plus.addEventListener('click', plusClick);
-buttons.reverse.addEventListener("click", reverseTimer);
-buttons.save.addEventListener("click", saveResults);
+buttons.reverse.addEventListener('click', reverseTimer);
+buttons.save.addEventListener('click', saveResults);
