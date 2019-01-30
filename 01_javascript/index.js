@@ -31,32 +31,33 @@ function calcTime(t) {
     timer.textContent = h.toString() + m.toString() + ':' + s.toString();
 }
 
+function startTime() {
+    isStartClick = true;
+    if (!isTimerRunning) {
+        clearInterval(startTimer);
+        currentTime -= oneSecond;
+        isStartClick = false;
+    }
+    currentTime += oneSecond;
+    //alert(currentTime);
+    if (currentTime < 0) {
+        currentTime = 0;
+        isTimerRunning = false;
+    }
+    calcTime(currentTime);
+};
+
 function startClick() {
     isTimerRunning = true;
     if (!isStartClick) {
-        startTimer = setInterval(function startTime() {
-            isStartClick = true;
-            if (!isTimerRunning) {
-                clearInterval(startTimer);
-                currentTime -= oneSecond;
-                isStartClick = false;
-            }
-            currentTime += oneSecond;
-            //alert(currentTime);
-            if (currentTime < 0) {
-                currentTime = 0;
-                isTimerRunning = false;
-            }
-            calcTime(currentTime);
-        }, 1000);
+        startTimer = setInterval(startTime, 1000);
     }
 }
 
 function resetClick() {
-    isTimerRunning = false;
-    isStartClick = false;
     currentTime = 0;
     timer.textContent = '00:00';
+    if (oneSecond < 0) oneSecond = -oneSecond;
 };
 
 function stopClick() {
@@ -77,21 +78,14 @@ function plusClick() {
 }
 
 function reverseTimer() {
-    oneSecond = -oneSecond;
-}
-
-document.body.onload = addElement;
-
-function addElement() {
-    let newDiv = document.createElement("div");
-    let newContent = document.createTextNode(timer.textContent);
-    newDiv.appendChild(newContent);
-    let currentDiv = document.getElementById("div1");
-    document.body.insertBefore(newDiv, currentDiv);
+    if (oneSecond > 0) oneSecond = -oneSecond;
 }
 
 function saveResults() {
-    addElement;
+    let div = document.createElement('div');
+    div.className = "div1";
+    document.body.appendChild(div);
+    div.appendChild(document.createTextNode(timer.textContent));
 }
 buttons.start.addEventListener('click', startClick);
 buttons.reset.addEventListener('click', resetClick);
