@@ -24,7 +24,6 @@
 
 
 function openCookiesRoom(password) {
-
     let number = 0;
     for (let i = 0; i < 3; i++) {
         let arrayDash = [0, 0, 0, 0, 0, 0, 0];
@@ -69,5 +68,6 @@ function openCookiesRoom(password) {
     return number;
 }
 module.exports = {
-    openCookiesRoom
+    openCookiesRoom(' _  _  _ \n' + '  ||_||_|\n' + '  ||_| _|\n');
+
 };
