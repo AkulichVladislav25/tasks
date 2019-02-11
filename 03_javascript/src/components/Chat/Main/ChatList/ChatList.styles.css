@@ -1,0 +1,28 @@
+.chat {
+  width: 100%; height: 100%;
+  max-width: 450px;
+  max-height: 700px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.chat__list {
+    overflow-y: auto;
+    flex: 1 0;
+  }
+  .chat__list::-webkit-scrollbar {
+    display: none;
+  }
+  .chat__list-item {
+    border-bottom: 1px solid #eeeeee;
+    cursor: pointer;
+  }
+  .chat__list-item:last-child {
+    border-bottom: none;
+  }

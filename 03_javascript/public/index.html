@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
@@ -20,172 +21,160 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
 
     <main class="chat" id="root">
+<!--
+        <header class="header">
+            <h1 class="header__title">Alina Arlova</h1>
+            <figure class="header__unread">4</figure>
+        </header>
 
-      <header class="header">
-        <h1 class="header__title">Alina Arlova</h1>
-        <figure class="header__unread">4</figure>
-      </header>
+        <ul class="chat__list">
+            <li class="chat__list-item">
 
-      <ul class="chat__list">
-        <li class="chat__list-item">
+                <article class="chat-preview">
+                    <h1 class="chat-preview__name">Dan Yanovich</h1>
+                    <h2 class="chat-preview__last-message">Алло, Виктор?</h2>
+                    <figure class="chat-preview__unread-count">3</figure>
+                </article>
 
-          <article class="chat-preview">
-            <h1 class="chat-preview__name">Dan Yanovich</h1>
-            <h2 class="chat-preview__last-message">Алло, Виктор?</h2>
-            <figure class="chat-preview__unread-count">3</figure>
-          </article>
+            </li>
+            <li class="chat__list-item">
 
-        </li>
-        <li class="chat__list-item">
+                <article class="chat-preview">
+                    <h1 class="chat-preview__name">Viktor</h1>
+                    <h2 class="chat-preview__last-message">Yeah, Dan, sure!</h2>
+                    <figure class="chat-preview__unread-count   chat-preview__unread-count--read"></figure>
+                </article>
 
-          <article class="chat-preview">
-            <h1 class="chat-preview__name">Viktor</h1>
-            <h2 class="chat-preview__last-message">Yeah, Dan, sure!</h2>
-            <figure class="chat-preview__unread-count   chat-preview__unread-count--read"></figure>
-          </article>
+            </li>
+            <li class="chat__list-item">
 
-        </li>
-        <li class="chat__list-item">
+                <article class="chat-preview">
+                    <h1 class="chat-preview__name">Misha Sliskaewko</h1>
+                    <h2 class="chat-preview__last-message">Алина, как там лекция по JS?</h2>
+                    <figure class="chat-preview__unread-count">1</figure>
+                </article>
 
-          <article class="chat-preview">
-            <h1 class="chat-preview__name">Misha Sliskaewko</h1>
-            <h2 class="chat-preview__last-message">Алина, как там лекция по JS?</h2>
-            <figure class="chat-preview__unread-count">1</figure>
-          </article>
+            </li>
+            <li class="chat__list-item">
 
-        </li>
-        <li class="chat__list-item">
+                <article class="chat-preview">
+                    <h1 class="chat-preview__name">Karina Bichenkowa</h1>
+                    <h2 class="chat-preview__last-message">Окей, принесу ещё печенек :)</h2>
+                    <figure class="chat-preview__unread-count  chat-preview__unread-count--read"></figure>
+                </article>
 
-          <article class="chat-preview">
-            <h1 class="chat-preview__name">Karina Bichenkowa</h1>
-            <h2 class="chat-preview__last-message">Окей, принесу ещё печенек :)</h2>
-            <figure class="chat-preview__unread-count  chat-preview__unread-count--read"></figure>
-          </article>
-
-        </li>
-      </ul>
+            </li>
+        </ul>
 
     </main>
 
     <main class="chat" id="root">
 
-      <header class="header">
-        <figure class="header__back-button"></figure>
-        <h1 class="header__title">With Dan Krachkouski</h1>
-      </header>
 
-      <ul class="chat__messages">
-        <li class="chat__message">
 
-          <article class="message  message">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">12:09</time>
-          </article>
+        <ul class="chat__messages">
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">12:09</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message">
-            Алло, Виктор?
-            <time class="message__when">12:45 am</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message">
+                    Алло, Виктор?
+                    <time class="message__when">12:45 am</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-        <li class="chat__message">
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-          <article class="message  message--mine">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi
-            expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
-            <time class="message__when">4:13 pm</time>
-          </article>
+            </li>
+            <li class="chat__message">
 
-        </li>
-      </ul>
+                <article class="message  message--mine">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque voluptatum quis. Voluptatibus culpa ab commodi expedita neque, unde ducimus quae aspernatur excepturi illum voluptas, aliquam sunt, asperiores facere minus.
+                    <time class="message__when">4:13 pm</time>
+                </article>
 
-      <footer class="input">
-        <input type="text" placeholder="Send Message" class="input__textarea">
-        <button class="input__submit-button"></button>
-      </footer>
+            </li>
+        </ul>
+
+        <footer class="input">
+            <input type="text" placeholder="Send Message" class="input__textarea">
+            <button class="input__submit-button"></button>
+        </footer>
 
     </main>
 
@@ -199,5 +188,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+-->
+</body>
+
 </html>

@@ -7,5 +7,5 @@ import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
 
-// ReactDOM.render(<Chat />, document.getElementById('root'));
+ReactDOM.render(<Chat name="Alina Arlova"/>, document.getElementById('root'));
 registerServiceWorker();

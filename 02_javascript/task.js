@@ -67,7 +67,8 @@ function openCookiesRoom(password) {
     }
     return number;
 }
+openCookiesRoom(' _  _  _ \n' + '  ||_||_|\n' + '  ||_| _|\n');
 module.exports = {
-    openCookiesRoom(' _  _  _ \n' + '  ||_||_|\n' + '  ||_| _|\n');
+    openCookiesRoom
 
 };
