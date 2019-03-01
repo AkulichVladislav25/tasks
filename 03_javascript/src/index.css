@@ -124,8 +124,7 @@ body {
 .chat__messages::-webkit-scrollbar {
   display: none;
 }
-.chat__message {
-}
+
 .message {
   margin: 15px;
   padding: 10px;

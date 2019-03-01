@@ -1,17 +1,52 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { PureComponent as Component } from 'react';
+import PropTypes from 'prop-types';
 import './ChatList.styles.css';
+
 class ChatList extends Component {
-   
-    render() {
-        const {messageFrom,lastMessage,unread}=this.props;
-        return (  
-        <li className="chat__list-item">
-        <article className="chat-preview">
-            <h1 className="chat-preview__name">messageFrom {messageFrom}</h1>
-            <h2 className="chat-preview__last-message">lastMessage {lastMessage}</h2>
-            <figure class="chat-preview__unread-count">unread {unread}</figure>
-        </article>
-        </li>
-        );
-    }
+  render() {
+    const { messages, onMessageClick } = this.props;
+    return (
+      <ul className="chat__list">
+        {messages.map((message, index) => (
+          <li
+            className="chat__list-item"
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            onClick={onMessageClick(message.messageFrom)}
+          >
+            <article className="chat-preview">
+              <h1 className="chat-preview__name">{message.messageFrom}</h1>
+              <h2 className="chat-preview__last-message">{message.messages[message.messages.length - 1].message}</h2>
+              <figure className="chat-preview__unread-count">
+                {
+                  message.messages.reduce((sum, current) => {
+                    if (!current.isRead) {
+                      return sum + 1;
+                    } return sum;
+                  }, 0)
+                }
+              </figure>
+            </article>
+
+          </li>
+        ))}
+      </ul>
+    );
+  }
 }
+ChatList.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.shape({
+    messages: PropTypes.arrayOf(PropTypes.shape({
+      message: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+      isRead: PropTypes.bool.isRequired,
+      isMine: PropTypes.bool.isRequired,
+    })),
+    messageFrom: PropTypes.string.isRequired,
+  })).isRequired,
+  onMessageClick: PropTypes.func.isRequired,
+};
+
+export default ChatList;
