@@ -1,48 +1,38 @@
-import React, { PureComponent as Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './ChatDialog.styles.css';
 
-class ChatDialog extends Component {
-  render() {
-    const {
-      messages,
-      value,
-      handleChange,
-      addMessage,
-    } = this.props;
-
-    return (
-      () => (
-        <React.Fragment>
-          <ul className="chat__messages">
-            {messages.map((message, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <li className="chat__message" key={index}>
-                {message.messages.map((element, index1) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <article className={element.isMine ? 'message  message--mine' : 'message  message'} key={index1}>
-                    {element.message}
-                    <time className="message__when">
-                      {element.time}
-                    </time>
-                  </article>
-                ))}
-              </li>
-            ))}
-          </ul>
-          <footer className="input">
-            <input type="text" placeholder="Send Message" className="input__textarea" value={value} onChange={handleChange} />
-            <button
-              type="button"
-              className="input__submit-button"
-              onClick={addMessage}
-            />
-          </footer>
-        </React.Fragment>
-      )
-    );
-  }
-}
+const ChatDialog = ({
+  messages,
+  value,
+  handleChange,
+  addMessage,
+}) => (
+  <React.Fragment>
+    <ul className="chat__messages">
+      {messages.map(message => (
+        <li className="chat__message" key={message.id}>
+          {message.messages.map(element => (
+            <article className={element.isMine ? 'message  message--mine' : 'message  message'} key={element.id}>
+              {element.message}
+              <time className="message__when">
+                {element.time}
+              </time>
+            </article>
+          ))}
+        </li>
+      ))}
+    </ul>
+    <footer className="input">
+      <input type="text" placeholder="Send Message" className="input__textarea" value={value} onChange={handleChange} />
+      <button
+        type="button"
+        className="input__submit-button"
+        onClick={addMessage}        
+      />
+    </footer>
+  </React.Fragment>
+);
 
 ChatDialog.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.shape({

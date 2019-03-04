@@ -48,11 +48,13 @@ class Chat extends Component {
     }
 
     addMessage = () => {
-      const { conversationWith, value } = this.state;
+      const { conversationWith, value, messages } = this.state;
       const newMessage = {
+        id: messages.filter(message => message.messageFrom === conversationWith).id,
         messageFrom: conversationWith,
         messages: [
           {
+            id: Math.random(10, 100),
             message: value,
             time: new Date().getMinutes() > 9 ? `${new Date().getHours()}:${new Date().getMinutes()}` : `${new Date().getHours()}:0${new Date().getMinutes()}`,
             isRead: true,
@@ -60,13 +62,13 @@ class Chat extends Component {
           },
         ],
       };
-      this.setState(ps => ({
+      this.setState({
         messages: [
-          ...ps.messages.filter(e => e.messageFrom.localeCompare(ps.conversationWith)),
+          ...messages.filter(e => e.messageFrom === conversationWith),
           newMessage,
         ],
         value: '',
-      }));
+      });
     }
 
     newMethod() {

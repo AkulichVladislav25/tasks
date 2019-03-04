@@ -9,11 +9,10 @@ class ChatList extends Component {
     const { messages, onMessageClick } = this.props;
     return (
       <ul className="chat__list">
-        {messages.map((message, index) => (
+        {messages.map(message => (
           <li
             className="chat__list-item"
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
+            key={message.id}
             onClick={onMessageClick(message.messageFrom)}
           >
             <article className="chat-preview">
@@ -45,6 +44,7 @@ ChatList.propTypes = {
       isMine: PropTypes.bool.isRequired,
     })),
     messageFrom: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   })).isRequired,
   onMessageClick: PropTypes.func.isRequired,
 };
