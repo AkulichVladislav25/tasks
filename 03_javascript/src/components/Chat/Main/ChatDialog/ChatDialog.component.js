@@ -26,9 +26,9 @@ const ChatDialog = ({
     <footer className="input">
       <input type="text" placeholder="Send Message" className="input__textarea" value={value} onChange={handleChange} />
       <button
-        type="button"
+        type="submit"
         className="input__submit-button"
-        onClick={addMessage}        
+        onClick={addMessage}
       />
     </footer>
   </React.Fragment>
