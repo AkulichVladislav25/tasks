@@ -26,9 +26,10 @@ const ChatDialog = ({
     <footer className="input">
       <input type="text" placeholder="Send Message" className="input__textarea" value={value} onChange={handleChange} />
       <button
-        type="submit"
+        type="button"
         className="input__submit-button"
         onClick={addMessage}
+        onKeyPress={e => ((e.which === 13 || e.keyCode === 13) ? addMessage : undefined)}
       />
     </footer>
   </React.Fragment>

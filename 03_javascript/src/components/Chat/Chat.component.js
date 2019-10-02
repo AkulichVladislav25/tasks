@@ -13,6 +13,7 @@ class Chat extends Component {
       unread: null,
       conversationWith: null,
       value: '',
+      id: 500,
     }
 
     componentDidMount() {
@@ -24,8 +25,7 @@ class Chat extends Component {
             }
             return sum;
           }, 0)).reduce((sum, current) => sum + current, 0),
-
-
+        value: '',
       }));
     }
 
@@ -48,13 +48,17 @@ class Chat extends Component {
     }
 
     addMessage = () => {
-      const { conversationWith, value, messages } = this.state;
+      const {
+        conversationWith,
+        value,
+        id,
+      } = this.state;
       const newMessage = {
-        id: messages.filter(message => message.messageFrom === conversationWith).id,
+        id: messages.filter(e => e.messageFrom === conversationWith).id,
         messageFrom: conversationWith,
         messages: [
           {
-            id: Math.random(10, 100),
+            id: id + 1,
             message: value,
             time: new Date().getMinutes() > 9 ? `${new Date().getHours()}:${new Date().getMinutes()}` : `${new Date().getHours()}:0${new Date().getMinutes()}`,
             isRead: true,
@@ -63,16 +67,12 @@ class Chat extends Component {
         ],
       };
       this.setState({
-        messages: [
-          ...messages.filter(e => e.messageFrom === conversationWith),
-          newMessage,
-        ],
-        value: '',
+        messages: 
+          if (this.state.messages.messages.messageFrom === conversationWith) {
+            return { ...message, messages: [...message.messages, newMessage] };
+          }
+        ,
       });
-    }
-
-    newMethod() {
-      return this;
     }
 
     render() {
@@ -98,7 +98,7 @@ class Chat extends Component {
           {isDialog
             ? (
               <ChatDialog
-                messages={messages.filter(e => !e.messageFrom.localeCompare(conversationWith))}
+                messages={messages.filter(e => e.messageFrom !== conversationWith)}
                 value={value}
                 handleChange={this.handleChange}
                 addMessage={this.addMessage}
